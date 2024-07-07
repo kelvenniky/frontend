@@ -18,6 +18,7 @@ import CameraScreen from "../screens/CameraScreen";
 import ConfirmationScreen from "../screens/ConfirmationScreen";
 import PlatziStoreApi from "../screens/PlatziStoreApi";
 import HelpScreen from "../screens/HelpScreen";
+import ProductInfoScreen2 from "../screens/ProductInfoScreen2";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -129,6 +130,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Info"
           component={ProductInfoScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Info2"
+          component={ProductInfoScreen2}
           options={{ headerShown: false }}
         />
         <Stack.Screen

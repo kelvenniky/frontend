@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, View, Text, StyleSheet, Image } from 'react-native';
+import { FlatList, View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import axios from 'axios';
 
-const PlatziStoreApi = () => {
+const PlatziStoreApi = ({navigation}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,13 +25,13 @@ const PlatziStoreApi = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
             <View style={{flexDirection:"row", alignItems:'center',flexWrap:"wrap"}}>
-                <View style={styles.productContainer}>
+                <Pressable  onPress={()=>navigation.navigate("Info2")} style={styles.productContainer}>
             <Image source={{ uri: item.images[0] }} style={styles.productImage} />
             <View style={styles.productDetails}>
               <Text style={styles.title}>{item.title}</Text>
               <Text style={styles.price}>${item.price}</Text>
             </View>
-          </View>
+          </Pressable>
             </View>
           
         )}

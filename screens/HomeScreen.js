@@ -259,12 +259,12 @@ const HomeScreen = () => {
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                marginleft:10,
+                marginleft: 10,
                 gap: 10,
                 backgroundColor: "white",
                 borderRadius: 3,
                 height: 38,
-              
+
                 // flex: 1,
               }}
             >
@@ -274,23 +274,24 @@ const HomeScreen = () => {
                 size={22}
                 color="black"
               />
-              <TextInput  placeholder="Search " />
+              <TextInput placeholder="Search " />
 
               <AntDesign
-                style={{ marginLeft:200 ,marginRight:10,}}
+                style={{ marginLeft: 200, marginRight: 10 }}
                 onPress={() => navigation.navigate("Camera")}
                 name="camera"
                 size={24}
                 color="black"
-                
               />
             </Pressable>
-            <Pressable onPress={()=>navigation.navigate("Cart")}>
-            <AntDesign name="shoppingcart" size={24} color="black" style={{marginLeft:20}} />
-
-
+            <Pressable onPress={() => navigation.navigate("Cart")}>
+              <AntDesign
+                name="shoppingcart"
+                size={24}
+                color="black"
+                style={{ marginLeft: 20 }}
+              />
             </Pressable>
-
           </View>
 
           <Pressable

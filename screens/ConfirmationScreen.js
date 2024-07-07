@@ -33,12 +33,21 @@ const ConfirmationScreen = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   },
+                  index < currentStep && { backgroundColor: "green" },
                 ]}
               >
                 {index < currentStep ? (
-                  <Text>&#10003;</Text>
+                  <Text
+                    style={{ fontSize: 16, fontWeight: "bold", color: "white" }}
+                  >
+                    &#10003;
+                  </Text>
                 ) : (
-                  <Text>{index + 1}</Text>
+                  <Text
+                    style={{ fontSize: 16, fontWeight: "bold", color: "white" }}
+                  >
+                    {index + 1}
+                  </Text>
                 )}
               </View>
             </View>
