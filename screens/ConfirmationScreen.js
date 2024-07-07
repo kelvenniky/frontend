@@ -26,7 +26,7 @@ const ConfirmationScreen = () => {
               <View
                 style={[
                   {
-                    width: L30,
+                    width: 30,
                     height: 30,
                     borderRadius: 15,
                     backgroundColor: "#ccc",

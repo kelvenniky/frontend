@@ -36,8 +36,8 @@ const CartScreen = () => {
   const navigation = useNavigation();
   console.log(total);
   return (
-    <ScrollView style={{ marginTop: 55, flex: 1, background: "white" }}>
-      <View
+    <ScrollView style={{ marginTop: 10, flex: 1, background: "white" }}>
+      {/* <View
         style={{
           backgroundColor: "#00ced1",
           padding: 10,
@@ -67,7 +67,7 @@ const CartScreen = () => {
           <TextInput placeholder="Search" />
         </Pressable>
         <Feather name="mic" size={24} color="black" />
-      </View>
+      </View> */}
 
       <View style={{ padding: 10, flexDirection: "row", alignItems: "center" }}>
         <Text style={{ fontSize: 18, fontWeight: "400" }}>

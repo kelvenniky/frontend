@@ -31,11 +31,11 @@ const StackNavigator = () => {
           component={HomeScreen}
           options={{
             tabBarLabel: "Home",
-            tabBarLabelStyle: { color: "#008E97" },
+            tabBarLabelStyle: { color: "black" },
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <Entypo name="home" size={24} color="#008E97" />
+                <Entypo name="home" size={24} color="#f07b07" />
               ) : (
                 <AntDesign name="home" size={24} color="black" />
               ),
@@ -46,12 +46,16 @@ const StackNavigator = () => {
           name="Profile"
           component={ProfileScreen}
           options={{
+            headerShown:true,
+            headerTitle:"Profile",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Profile",
-            tabBarLabelStyle: { color: "#008E97" },
-            headerShown: false,
+            tabBarLabelStyle: { color: "black" },
+            
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <Ionicons name="person" size={24} color="#008E97" />
+                <Ionicons name="person" size={24} color="#f07b07" />
               ) : (
                 <Ionicons name="person-outline" size={24} color="black" />
               ),
@@ -62,28 +66,35 @@ const StackNavigator = () => {
           name="Cart"
           component={CartScreen}
           options={{
+            headerShown:true,
+            headerTitle:"Cart",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Cart",
-            tabBarLabelStyle: { color: "#008E97" },
-            headerShown: false,
+            tabBarLabelStyle: { color: "black" },
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <AntDesign name="shoppingcart" size={24} color="#008E97" />
+                <AntDesign name="shoppingcart" size={24} color="#f07b07" />
               ) : (
                 <AntDesign name="shoppingcart" size={24} color="black" />
               ),
           }}
         />
-         <Tab.Screen
+        <Tab.Screen
           name="Shop"
           component={PlatziStoreApi}
           options={{
-            headerStyle:{backgroundColor:"#00ced1", },
+            headerShown:true,
+            headerTitle:"Shop",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"},
+        
             tabBarLabel: "Shop",
-            tabBarLabelStyle: { color: "#008E97" },
+            tabBarLabelStyle: { color: "black" },
             // headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <Entypo name="shop" size={24} color="#008E97" />
+                <Entypo name="shop" size={24} color="#f07b07" />
               ) : (
                 <Entypo name="shop" size={24} color="black" />
               ),
@@ -93,13 +104,16 @@ const StackNavigator = () => {
           name="Help"
           component={HelpScreen}
           options={{
-            headerStyle:{backgroundColor:"#00ced1", },
+            headerShown:true,
+            headerTitle:"Details",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Help",
-            tabBarLabelStyle: { color: "#008E97" },
+            tabBarLabelStyle: { color: "black" },
             // headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
-                <Entypo name="help-with-circle" size={24} color="#008E97" />
+                <Entypo name="help-with-circle" size={24} color="#f07b07" />
               ) : (
                 <Entypo name="help-with-circle" size={24} color="black" />
               ),
@@ -112,7 +126,7 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Main">
-         <Stack.Screen
+        <Stack.Screen
           name="Login"
           component={LoginScreen}
           options={{ headerShown: false }}
@@ -121,8 +135,8 @@ const StackNavigator = () => {
           name="Register"
           component={RegisterScreen}
           options={{ headerShown: false }}
-        />    
-        <Stack.Screen 
+        />
+        <Stack.Screen
           name="Main"
           component={BottomTabs}
           options={{ headerShown: false }}
@@ -135,7 +149,14 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Info2"
           component={ProductInfoScreen2}
-          options={{ headerShown: false }}
+          options={{ 
+            headerShown:true,
+            headerTitle:"Details",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"}
+            
+
+          }}
         />
         <Stack.Screen
           name="Address"
@@ -160,14 +181,35 @@ const StackNavigator = () => {
         <Stack.Screen
           name="PlatziStore"
           component={PlatziStoreApi}
-          options={{ headerShown: false }}
+          options={{ 
+            headerShown:true,
+            headerTitle:"Details",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"}
+          }}
         />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{ 
+            headerShown:false,
+            headerTitle:"Details",
+            headerTintColor:"white",
+            headerStyle:{backgroundColor:"#262624"}
+          }}
+        />
+        <Stack.Screen
+        name="Help"
+        component={HelpScreen}
+        options={{ 
+          headerShown:true,
+          headerTitle:"Details",
+          headerTintColor:"white",
+          headerStyle:{backgroundColor:"#262624"}
+        }}
+      
+      />
       </Stack.Navigator>
-      <Stack.Screen
-          name="Help"
-          component={HelpScreen}
-          options={{ headerShown: false }}
-        />
       
     </NavigationContainer>
   );

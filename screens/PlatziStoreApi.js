@@ -1,39 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import axios from 'axios';
+import { View, FlatList, StyleSheet } from 'react-native';
+import ProductCard from '../components/ProductCard';
 
-const PlatziStoreApi = ({navigation}) => {
+
+const PlatziStoreApi = ({ navigation }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      try {
-        const response = await axios.get('https://api.escuelajs.co/api/v1/products');
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
+      const response = await fetch('https://api.escuelajs.co/api/v1/products');
+      const data = await response.json();
+      setProducts(data);
     };
-
     fetchProducts();
   }, []);
+
+  const handleProductPress = (product) => {
+    navigation.navigate('Info2', { product });
+  };
 
   return (
     <View style={styles.container}>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id.toString()}
+        numColumns={2}
         renderItem={({ item }) => (
-            <View style={{flexDirection:"row", alignItems:'center',flexWrap:"wrap"}}>
-                <Pressable  onPress={()=>navigation.navigate("Info2")} style={styles.productContainer}>
-            <Image source={{ uri: item.images[0] }} style={styles.productImage} />
-            <View style={styles.productDetails}>
-              <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.price}>${item.price}</Text>
-            </View>
-          </Pressable>
-            </View>
-          
+          <ProductCard product={item} onPress={handleProductPress} />
         )}
       />
     </View>
@@ -42,42 +35,10 @@ const PlatziStoreApi = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:50,
-    marginLeft:20,
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
- },
-   productContainer: {
-     width: '90%',
-  flexDirection: 'row',
-       padding: 16,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-     marginVertical: 8,
-     alignItems: 'center',
-     flexWrap: "wrap",
-   },
-  productImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 8,
-     marginRight: 16,
-  },
-//   productDetails: {
-//     flex: 1,
-//     justifyContent: 'center',
-//   },
-   title: {
-     fontSize: 16,
-     fontWeight: 'bold',
-   },
-   price: {
-     fontSize: 14,
-     color: '#555',
-     marginTop: 4,
+    flex: 1,
+    backgroundColor: '#f2f2f2',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
 });
 
