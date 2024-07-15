@@ -26,41 +26,44 @@ import { UserContext, UserType } from "../UserContext";
 
 const HomeScreen = () => {
   const list = [
-    {
-      id: "0",
-      image: "https://m.media-amazon.com/images/I/41EcYoIZhIL._AC_SY400_.jpg",
-      name: "Home",
-    },
-    {
-      id: "1",
-      image:
-        "https://m.media-amazon.com/images/G/31/img20/Events/Jup21dealsgrid/blockbuster.jpg",
-      name: "Deals",
-    },
-    {
-      id: "3",
-      image:
-        "https://images-eu.ssl-images-amazon.com/images/I/31dXEvtxidL._AC_SX368_.jpg",
-      name: "Electronics",
-    },
-    {
-      id: "4",
-      image:
-        "https://m.media-amazon.com/images/G/31/img20/Events/Jup21dealsgrid/All_Icons_Template_1_icons_01.jpg",
-      name: "Mobiles",
-    },
-    {
-      id: "5",
-      image:
-        "https://m.media-amazon.com/images/G/31/img20/Events/Jup21dealsgrid/music.jpg",
-      name: "Music",
-    },
-    {
-      id: "6",
-      image: "https://m.media-amazon.com/images/I/51dZ19miAbL._AC_SY350_.jpg",
-      name: "Fashion",
-    },
-  ];
+      {
+        "id": 1,
+        "name": "Clothes",
+        "image": "https://i.imgur.com/QkIa5tT.jpeg",
+        "creationAt": "2024-07-09T23:50:25.000Z",
+        "updatedAt": "2024-07-09T23:50:25.000Z"
+      },
+      {
+        "id": 2,
+        "name": "Electronics",
+        "image": "https://i.imgur.com/ZANVnHE.jpeg",
+        "creationAt": "2024-07-09T23:50:25.000Z",
+        "updatedAt": "2024-07-09T23:50:25.000Z"
+      },
+      {
+        "id": 3,
+        "name": "Furniture",
+        "image": "https://i.imgur.com/Qphac99.jpeg",
+        "creationAt": "2024-07-09T23:50:25.000Z",
+        "updatedAt": "2024-07-09T23:50:25.000Z"
+      },
+      {
+        "id": 4,
+        "name": "Shoes",
+        "image": "https://i.imgur.com/qNOjJje.jpeg",
+        "creationAt": "2024-07-09T23:50:25.000Z",
+        "updatedAt": "2024-07-09T23:50:25.000Z"
+      },
+      {
+        "id": 5,
+        "name": "Miscellaneous",
+        "image": "https://i.imgur.com/BG8J0Fj.jpg",
+        "creationAt": "2024-07-09T23:50:25.000Z",
+        "updatedAt": "2024-07-09T23:50:25.000Z"
+      },
+     
+    ]
+    
 
   const images = [
     "https://img.etimg.com/thumb/msid-93051525,width-1070,height-580,imgsize-2243475,overlay-economictimes/photo.jpg",
@@ -249,7 +252,7 @@ const HomeScreen = () => {
         <ScrollView>
           <View
             style={{
-              backgroundColor: "#00ced1",
+              backgroundColor: "#262624",
               padding: 10,
               flexDirection: "row",
               alignItems: "center",
@@ -288,7 +291,7 @@ const HomeScreen = () => {
               <AntDesign
                 name="shoppingcart"
                 size={24}
-                color="black"
+                color="white"
                 style={{ marginLeft: 20 }}
               />
             </Pressable>
@@ -325,7 +328,7 @@ const HomeScreen = () => {
                 }}
               >
                 <Image
-                  style={{ width: 50, height: 50, resizeMode: "contain" }}
+                  style={{ width: 80, height: 80, resizeMode: "contain" , borderRadius:40 }}
                   source={{ uri: item.image }}
                 />
 

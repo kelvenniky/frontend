@@ -84,7 +84,7 @@ const StackNavigator = () => {
           name="Shop"
           component={PlatziStoreApi}
           options={{
-            headerShown:true,
+            headerShown:false,
             headerTitle:"Shop",
             headerTintColor:"white",
             headerStyle:{backgroundColor:"#262624"},
@@ -105,7 +105,7 @@ const StackNavigator = () => {
           component={HelpScreen}
           options={{
             headerShown:true,
-            headerTitle:"Details",
+            headerTitle:"Help",
             headerTintColor:"white",
             headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Help",
@@ -150,7 +150,7 @@ const StackNavigator = () => {
           name="Info2"
           component={ProductInfoScreen2}
           options={{ 
-            headerShown:true,
+            headerShown:false,
             headerTitle:"Details",
             headerTintColor:"white",
             headerStyle:{backgroundColor:"#262624"}

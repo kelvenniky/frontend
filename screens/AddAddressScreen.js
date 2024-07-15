@@ -45,7 +45,7 @@ const AddAddressScreen = () => {
     <ScrollView showVerticalScrollIndicator={false} style={{ marginTop: 50 }}>
       <View
         style={{
-          backgroundColor: "#00ced1",
+          backgroundColor: "#262624",
           padding: 10,
           flexDirection: "row",
           alignItems: "center",
@@ -71,7 +71,15 @@ const AddAddressScreen = () => {
           />
           <TextInput placeholder="Search Amazon.in" />
         </Pressable>
-        <Feather name="mic" size={24} color="black" />
+       
+        <Pressable onPress={() => navigation.navigate("Cart")}>
+              <AntDesign
+                name="shoppingcart"
+                size={24}
+                color="white"
+                style={{ marginLeft: 20 }}
+              />
+            </Pressable>
       </View>
 
       <View style={{ padding: 10 }}>
