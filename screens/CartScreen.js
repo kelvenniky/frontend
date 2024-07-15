@@ -33,42 +33,11 @@ const CartScreen = () => {
   const deleteItem = (item) => {
     dispatch(removeFromCart(item));
   };
+  
   const navigation = useNavigation();
   console.log(total);
   return (
     <ScrollView style={{ marginTop: 10, flex: 1, background: "white" }}>
-      {/* <View
-        style={{
-          backgroundColor: "#00ced1",
-          padding: 10,
-          flexDirection: "row",
-          alignItems: "center",
-          marginTop:40,
-        }}
-      >
-        <Pressable
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginHorizontal: 7,
-            gap: 10,
-            backgroundColor: "white",
-            borderRadius: 3,
-            height: 38,
-            flex: 1,
-          }}
-        >
-          <AntDesign
-            style={{ paddingLeft: 10 }}
-            name="search1"
-            size={22}
-            color="black"
-          />
-          <TextInput placeholder="Search" />
-        </Pressable>
-        <Feather name="mic" size={24} color="black" />
-      </View> */}
-
       <View style={{ padding: 10, flexDirection: "row", alignItems: "center" }}>
         <Text style={{ fontSize: 18, fontWeight: "400" }}>
           {" "}

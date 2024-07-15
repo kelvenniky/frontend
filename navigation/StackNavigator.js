@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -19,6 +19,9 @@ import ConfirmationScreen from "../screens/ConfirmationScreen";
 import PlatziStoreApi from "../screens/PlatziStoreApi";
 import HelpScreen from "../screens/HelpScreen";
 import ProductInfoScreen2 from "../screens/ProductInfoScreen2";
+import FaqScreen from "../screens/FaqScreen"
+import OrderScreen from "../screens/OrderScreen";
+import OrderScreen2 from "../screens/OrderScreen2";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -47,11 +50,25 @@ const StackNavigator = () => {
           component={ProfileScreen}
           options={{
             headerShown:true,
-            headerTitle:"Profile",
+            headerTitle:"Account",
             headerTintColor:"white",
             headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Profile",
             tabBarLabelStyle: { color: "black" },
+            headerTitleAlign:"center",
+            headerRight: () => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 12,
+                  marginRight: 12,
+                }}
+              >
+                <AntDesign  name="shoppingcart" size={24} color="white" />
+                <AntDesign name="search1" size={24} color="white" />
+              </View>
+       ),
             
             tabBarIcon: ({ focused }) =>
               focused ? (
@@ -68,6 +85,7 @@ const StackNavigator = () => {
           options={{
             headerShown:true,
             headerTitle:"Cart",
+            headerTitleAlign:"center",
             headerTintColor:"white",
             headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Cart",
@@ -78,7 +96,7 @@ const StackNavigator = () => {
               ) : (
                 <AntDesign name="shoppingcart" size={24} color="black" />
               ),
-          }}
+              }}
         />
         <Tab.Screen
           name="Shop"
@@ -86,12 +104,26 @@ const StackNavigator = () => {
           options={{
             headerShown:true,
             headerTitle:"Shop",
+            headerTitleAlign:"center",
             headerTintColor:"white",
             headerStyle:{backgroundColor:"#262624"},
-        
             tabBarLabel: "Shop",
             tabBarLabelStyle: { color: "black" },
-            // headerShown: false,
+            headerTitleAlign:"center",
+            headerRight: () => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 12,
+                  marginRight: 12,
+                }}
+              >
+                <AntDesign name="shoppingcart" size={24} color="white" />
+      
+                <AntDesign name="search1" size={24} color="white" />
+              </View>
+       ),
             tabBarIcon: ({ focused }) =>
               focused ? (
                 <Entypo name="shop" size={24} color="#f07b07" />
@@ -110,7 +142,21 @@ const StackNavigator = () => {
             headerStyle:{backgroundColor:"#262624"},
             tabBarLabel: "Help",
             tabBarLabelStyle: { color: "black" },
-            // headerShown: false,
+            headerTitleAlign:"center",
+            headerRight: () => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  gap: 12,
+                  marginRight: 12,
+                }}
+              >
+                <AntDesign name="shoppingcart" size={24} color="white" />
+      
+                <AntDesign name="search1" size={24} color="white" />
+              </View>
+       ),
             tabBarIcon: ({ focused }) =>
               focused ? (
                 <Entypo name="help-with-circle" size={24} color="#f07b07" />
@@ -144,6 +190,11 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Info"
           component={ProductInfoScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Faq"
+          component={FaqScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -207,7 +258,43 @@ const StackNavigator = () => {
           headerTintColor:"white",
           headerStyle:{backgroundColor:"#262624"}
         }}
-      
+      />
+
+<Stack.Screen
+        name="Order"
+        component={OrderScreen}
+        options={{ 
+          headerShown:true,
+          headerTitle:"Order",
+          headerTintColor:"white",
+          headerStyle:{backgroundColor:"#262624"}
+        }}
+      />
+
+<Stack.Screen
+        name="Order2"
+        component={OrderScreen2}
+        options={{ 
+          headerShown:true,
+          headerTitle:"Orders",
+          headerTitleAlign:"center",
+          headerTintColor:"white",
+          headerStyle:{backgroundColor:"#262624"},
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 12,
+                marginRight: 12,
+              }}
+            >
+              
+              <AntDesign  name="shoppingcart" size={24} color="white" />
+              <AntDesign name="search1" size={24} color="white" />
+            </View>
+     ),
+        }}
       />
       </Stack.Navigator>
       
