@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import React, { useEffect, useState, useCallback } from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import axios from "axios";

@@ -1,56 +1,53 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import React from "react";
+import {StyleSheet,Text,View,SafeAreaView,TouchableOpacity,ScrollView,Pressable,} from "react-native";
+import React, { useContext, useEffect, useState } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { UserType } from "../UserContext";
 
 const ProfileScreen = ({navigation}) => {
+  const { userId, setUserId } = useContext(UserType);
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/profile/${userId}`
+        );
+        const { user } = response.data;
+        setUser(user);
+      } catch (error) {
+        console.log("error", error);
+      }
+    }});
   return (
     <SafeAreaView>
-      <View
-        style={{ backgroundColor: "#383633", paddingTop: 5, paddingBottom: 5 }}
-      >
-        <View style={{ marginTop: 5, marginLeft: 10 }}>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
-          >
+      <View style={{ backgroundColor: "#383633", paddingTop: 5, paddingBottom: 5 }}>
+      
+         <View style={{ marginTop: 5,  marginLeft: 10 }}> 
+          <View style={{display: "flex",flexDirection: "row",justifyContent: "space-between",}}>
+            
             <View>
               <Text style={{ color: "#f07b07", fontWeight: "bold" }}>
-                Welcome
+                Welcome {user?.name}
               </Text>
               <Text style={{ color: "white" }}>Enter your account</Text>
             </View>
             <TouchableOpacity
             onPress={()=>navigation.navigate("Login")}
 
-              style={{
-                backgroundColor: "#f07b07",
-                borderRadius: 5,
-                padding: 12,
-                marginRight: 10,
-                paddingHorizontal: 25,
-              }}
+              style={{backgroundColor: "#f07b07",borderRadius: 5,padding: 12,marginRight: 10,paddingHorizontal: 25, }}
             >
               <Text style={{ color: "white", fontWeight: "500" }}>
                 Login/Sign in
               </Text>
             </TouchableOpacity>
           </View>
-        </View>
+         </View> 
       </View>
       <View
         style={{
@@ -92,9 +89,10 @@ const ProfileScreen = ({navigation}) => {
             paddingLeft: 10,
           }}
         >
-          <View style={{ flexDirection: "row", marginTop: 20 }}>
+          <View style={{ flexDirection: "row", marginTop: 20 }}  >
             <Feather name="package" size={24} color="black" />
             <Text
+            onPress={() => navigation.navigate("Order2")}
               style={{
                 marginLeft: 15,
                 marginTop: 5,
@@ -208,6 +206,7 @@ const ProfileScreen = ({navigation}) => {
           </Text>
         </View>
         <View style={{ height: 50, backgroundColor: "white", marginTop: 10 }}>
+        <Pressable onPress={() => navigation.navigate("Address")}>
           <Text
             style={{
               marginTop: 20,
@@ -218,9 +217,12 @@ const ProfileScreen = ({navigation}) => {
           >
             Address Book
           </Text>
+          </Pressable>
         </View>
         <View style={{ alignItems: "center", marginTop: 20 }}>
+          <Pressable onPress={() => navigation.navigate("Login")}>
           <Text style={{ color: "#f07b07" }}>Login</Text>
+          </Pressable>
         </View>
       </ScrollView>
     </SafeAreaView>

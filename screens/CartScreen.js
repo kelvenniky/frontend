@@ -25,6 +25,7 @@ const CartScreen = ({product}) => {
   const handleRemoveFromCart = (item) => {
     dispatch(removeFromCart(item));
   };
+<<<<<<< HEAD
 
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -51,6 +52,71 @@ const CartScreen = ({product}) => {
                 <TouchableOpacity onPress={() => handleIncrement(item)}>
                   <Text style={styles.quantityButton}>+</Text>
                 </TouchableOpacity>
+=======
+  
+  const navigation = useNavigation();
+  console.log(total);
+  return (
+    <ScrollView style={{ marginTop: 10, flex: 1, background: "white" }}>
+      <View style={{ padding: 10, flexDirection: "row", alignItems: "center" }}>
+        <Text style={{ fontSize: 18, fontWeight: "400" }}>
+          {" "}
+          SubTotal : GH₵{" "}
+        </Text>
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}> {total} </Text>
+      </View>
+
+      <Pressable
+        onPress={() => navigation.navigate("Confirm")}
+        style={{
+          backgroundColor: "#FFC72C",
+          padding: 10,
+          borderRadius: 5,
+          justifyContent: "center",
+          alignItems: "center",
+          marginHorizontal: 10,
+          marginTop: 10,
+        }}
+      >
+        <Text>CHECKOUT (GH₵ {total})</Text>
+      </Pressable>
+
+      <Text
+        style={{
+          height: 1,
+          borderColor: "#D0D0D0",
+          borderWidth: 1,
+          marginTop: 16,
+        }}
+      />
+
+      <View style={{ marginHorizontal: 10 }}>
+        {cart?.map((item, index) => (
+          <View
+            style={{
+              backgroundColor: "white",
+              marginVertical: 10,
+              borderBottomColor: "#F0F0F0",
+              borderWidth: 2,
+              borderLeftWidth: 0,
+              borderTopWidth: 0,
+              borderRightWidth: 0,
+            }}
+            key={index}
+          >
+            <Pressable
+              style={{
+                marginVertical: 10,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <View>
+                <Image
+                  style={{ width: 140, height: 140, resizeMode: "contain" }}
+                  source={{ uri: item?.image }}
+                />
+>>>>>>> origin/main
               </View>
               <TouchableOpacity onPress={() => handleRemoveFromCart(item)}>
                 <Text style={styles.removeButton}>Remove</Text>

@@ -3,7 +3,8 @@ import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-const HelpScreen = () => {
+
+const HelpScreen = ({navigation}) => {
   return (
     <SafeAreaView>
       <TouchableOpacity  style={{backgroundColor:"#f07b07",marginLeft:23, marginRight:23,flexDirection:"row", borderRadius:5,marginTop:20, padding:12}}>
@@ -16,7 +17,7 @@ const HelpScreen = () => {
       <View style={{backgroundColor:'white',height:180, marginTop:6}}>
         <Text style={{marginLeft:14,marginTop:20,fontWeight:"500", fontSize:15 }}>Jumia Services</Text>
         <Text style={{marginLeft:14,marginTop:45,fontWeight:"500", fontSize:15 }}>Privacy Policy</Text>
-        <Text style={{marginLeft:14,marginTop:40,fontWeight:"500", fontSize:15 }}>Faq</Text>
+        <Text onPress={()=>navigation.navigate("Faq")} style={{marginLeft:14,marginTop:40,fontWeight:"500", fontSize:15 }}>Faq</Text>
       </View>
       <View style={{marginTop:30, marginLeft:14}}>
         <Text style={{color:"grey", fontSize:12, fontWeight:"500"}}>SETTINGS</Text>
