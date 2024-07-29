@@ -22,6 +22,9 @@ import ProductInfoScreen2 from "../screens/ProductInfoScreen2";
 import FaqScreen from "../screens/FaqScreen"
 import OrderScreen from "../screens/OrderScreen";
 import OrderScreen2 from "../screens/OrderScreen2";
+import Services from "../components/Services";
+import Privacy from "../components/Privacy";
+import Country from "../components/Country";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -188,6 +191,26 @@ const StackNavigator = () => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Services"
+          component={Services}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Country"
+          component={Country}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Privacy"
+          component={Privacy}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Cart"
+          component={CartScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Info"
           component={ProductInfoScreen}
           options={{ headerShown: false }}
@@ -224,11 +247,11 @@ const StackNavigator = () => {
           component={CameraScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+         {/* <Stack.Screen
           name="Confirm"
           component={ConfirmationScreen}
           options={{ headerShown: false }}
-        />
+        />  */}
         <Stack.Screen
           name="PlatziStore"
           component={PlatziStoreApi}

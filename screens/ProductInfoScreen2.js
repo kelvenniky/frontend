@@ -7,20 +7,13 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Dimensions,
-  ImageBackground,
+  FlatList,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
-<<<<<<< HEAD
 import { Dimensions } from "react-native";
 import { addToCart } from "../redux/CartReducer";
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-=======
-import { addToCart } from "../redux/CartReducer";
-import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
->>>>>>> origin/main
 
 import { AntDesign } from "@expo/vector-icons";
 
@@ -55,21 +48,7 @@ const ProductInfoScreen2 = ({route}) => {
     // Implement your "Buy Now" logic here
     console.log("Buying product:", product);
   };
-  const { width } = Dimensions.get("window");
-  const height = (width * 100) / 100;
-  const navigation = useNavigation();
-  const [addedToCart, setAddedToCart] = useState(false);
-  const dispatch = useDispatch();
-  const addItemToCart = (product) => {
-    setAddedToCart(true);
-    dispatch(addToCart(product));
-    setTimeout(() => {
-      setAddedToCart(false);
-    }, 60000);
-  };
-  const cart = useSelector((state) => state.cart.cart);
-  console.log(cart);
-  
+
   return (
     <View>
       <View
@@ -96,7 +75,6 @@ const ProductInfoScreen2 = ({route}) => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        
           <Image
             source={{ uri: product.images[0] }}
             style={styles.productImage}
@@ -109,9 +87,7 @@ const ProductInfoScreen2 = ({route}) => {
             source={{ uri: product.images[2] }}
             style={styles.productImage}
           />
-
         </ScrollView>
-<<<<<<< HEAD
         <View style={{marginBottom:230, marginLeft:20}}>
         <Text style={styles.productName}>{product.title}</Text>
         <Text style={styles.productDescription}>{product.description}</Text>
@@ -124,37 +100,6 @@ const ProductInfoScreen2 = ({route}) => {
           </View>
         ) : (
           <Text style={styles.AddToCartText}> Add to Cart</Text>
-=======
-
-        <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 20,
-                backgroundColor: "#E0E0E0",
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "row",
-               marginTop:2,
-               marginRight:300
-              }}
-            >
-              <AntDesign name="hearto" size={24} color="black" />
-            </View>
-        <Text style={styles.productName}>{product.title}</Text>
-        <Text style={styles.productDescription}>{product.description}</Text>
-        <Text style={styles.productPrice}>GH₵ {product.price}</Text>
-
-        
-        <TouchableOpacity onPress={() => addItemToCart(route?.params?.item)} style={styles.AddToCart} >
-       
-        {addedToCart ? (
-          <View >
-            <Text>Added To Cart</Text>
-          </View>
-        ) : (
-          <Text> Add to Cart</Text>
->>>>>>> origin/main
         )}
         </TouchableOpacity>
         <TouchableOpacity style={styles.buyNowButton} onPress={handleBuyNow}>
@@ -209,7 +154,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buyNowButton: {
-<<<<<<< HEAD
     marginTop: 10,
     backgroundColor: "#FFAC1C",
     height:50,
@@ -217,23 +161,12 @@ const styles = StyleSheet.create({
     alignItems:"center",
     padding:10,
     width:350
-=======
-    padding: 10,
-          backgroundColor: "#FFAC1C",
-          borderRadius: 20,
-          justifyContent: "center",
-          alignItems: "center",
-          height:50,
-          width:350,
-          marginTop:20
->>>>>>> origin/main
   },
   buyNowText: {
-    color: "black",
+    color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
   },
-<<<<<<< HEAD
   AddToCart: {
     backgroundColor: "#FFC72C",
     height:50,
@@ -241,20 +174,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding:10,
     width:350
-=======
-  AddToCart:{
-    padding: 10,
-    backgroundColor: "#FFC72C",
-    borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    height:50,
-    width:350,
-   
->>>>>>> origin/main
   },
   AddToCartText: {
-    color: "black",
+    color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
   },

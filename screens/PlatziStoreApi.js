@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View,Pressable,Text,TextInput, FlatList, StyleSheet } from 'react-native';
+import { View,Pressable,Text,TextInput, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
 import ProductCard from '../components/ProductCard';
 import productData from '../data/products.json';
 import { AntDesign } from "@expo/vector-icons";
@@ -7,12 +7,64 @@ import { AntDesign } from "@expo/vector-icons";
 
 
 
+// const API = "https://api.escuelajs.co/api/v1/products"
+
+
+
+
+
 const PlatziStoreApi = ({ navigation }) => {
+  //  const [searchQuery, setSearchQuery] =useState("")
+  //  const [isLoading, setIsLoading] =useState(false)
+  //  const [data, setData] =useState([])
+  //  const [error, setError] =useState(null)
+  //  const [fullData, setfullData] =useState([])
+
+  //  useEffect(()=>{
+
+  //   setIsLoading(true);
+  //   fetchData(API);
+
+  //  },[])
+   
+
+
+  //  const fetchData = async(url)=>{
+  //   try{
+  //     const response =  await fetch(url);
+  //     const json = response.json();
+  //     setData(json.results);
+
+  //     console.log(json.results);
+
+  //   setIsLoading(false)
+  //   }catch(error){
+  //     setError(error);
+  //   }
+  //     console.log(error)
+  //     setIsLoading(false)
+  //  }
+
+
+
+  
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     setProducts(productData);
   }, []);
+
+  // const handleSearch =(query)=>{
+  //   setSearchQuery(query);
+
+  // }
+  // if (isLoading) {
+  //   return(
+  //     <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+  //     <ActivityIndicator size={"large"} color="#5500dc"/>
+  //     </View>
+  //   )
+  // }
 
 
 

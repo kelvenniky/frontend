@@ -71,18 +71,6 @@ const AddAddressScreen = () => {
           />
           <TextInput placeholder="Search Amazon.in" />
         </Pressable>
-<<<<<<< HEAD
-       
-        <Pressable onPress={() => navigation.navigate("Cart")}>
-              <AntDesign
-                name="shoppingcart"
-                size={24}
-                color="white"
-                style={{ marginLeft: 20 }}
-              />
-            </Pressable>
-=======
->>>>>>> origin/main
       </View>
 
       <View style={{ padding: 10 }}>
