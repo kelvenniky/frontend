@@ -7,14 +7,13 @@ import { AntDesign } from "@expo/vector-icons";
 
 
 
-// const API = "https://api.escuelajs.co/api/v1/products"
 
 
 
 
 
 const PlatziStoreApi = ({ navigation }) => {
-  //  const [searchQuery, setSearchQuery] =useState("")
+   const [userInput, setUserInput] = useState("")
   //  const [isLoading, setIsLoading] =useState(false)
   //  const [data, setData] =useState([])
   //  const [error, setError] =useState(null)
@@ -54,33 +53,26 @@ const PlatziStoreApi = ({ navigation }) => {
     setProducts(productData);
   }, []);
 
-  // const handleSearch =(query)=>{
-  //   setSearchQuery(query);
-
-  // }
-  // if (isLoading) {
-  //   return(
-  //     <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
-  //     <ActivityIndicator size={"large"} color="#5500dc"/>
-  //     </View>
-  //   )
-  // }
-
-
-
   
-
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const response = await fetch('https://api.escuelajs.co/api/v1/products');
-  //     const data = await response.json();
-  //     setProducts(data);
-  //   };
-  //   fetchProducts();
-  // }, []);
-
   const handleProductPress = (product) => {
     navigation.navigate('Info2', { product });
+  };
+  const filterData=(item) =>{
+
+    if (userInput === ""){
+      return(
+        <ProductCard product={item} onPress={handleProductPress} />
+      )
+    }
+
+    if(item.title.includes(userInput)){
+      return(
+        <ProductCard product={item} onPress={handleProductPress} />
+      )
+    
+    }
+
+
   };
 
   return (
@@ -94,18 +86,26 @@ const PlatziStoreApi = ({ navigation }) => {
               alignItems: "center",
             }}
           >
+             <AntDesign
+                style={{  marginRight: 5 }}
+                onPress={() => navigation.navigate("Camera")}
+                name="camera"
+                size={24}
+                color="white"
+              /> 
+
+            
             <Pressable
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                marginleft: 10,
-                width:350,
-                gap: 10,
+               
+                width:300,
+               
                 backgroundColor: "white",
                 borderRadius: 3,
                 height: 38,
-
-                // flex: 1,
+                marginLeft:8
               }}
             >
               <AntDesign
@@ -114,28 +114,23 @@ const PlatziStoreApi = ({ navigation }) => {
                 size={22}
                 color="black"
               />
-              <TextInput placeholder="Search " />
+              <TextInput 
+              placeholder="Search "
+              onChangeText={(text)=> setUserInput(text)}
+              style={{marginLeft:10}} />
 
-              <AntDesign
-                style={{ marginLeft: 200, marginRight: 10 }}
-                onPress={() => navigation.navigate("Camera")}
-                name="camera"
-                size={24}
-                color="black"
-              />
+              
             </Pressable>
             <Pressable onPress={() => navigation.navigate("Cart")}>
               <AntDesign
                 name="shoppingcart"
                 size={24}
                 color="white"
-                style={{ marginLeft: 20 }}
+                style={{ marginLeft: 10 }}         
               />
             </Pressable>
           </View>
-       {/* <View style={{height:90, width:1000,backgroundColor:"black"}}>
-          <Text style={{color:"white", marginLeft:180,marginTop:60,fontSize:18, fontWeight:"bold"}}>Shop</Text>
-      </View> */}
+      
     <View style={styles.container}>
      
      
@@ -143,9 +138,8 @@ const PlatziStoreApi = ({ navigation }) => {
         data={products}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
-        renderItem={({ item }) => (
-          <ProductCard product={item} onPress={handleProductPress} />
-        )}
+        renderItem={({ item }) => filterData (item)}
+        
       />
     </View>
     </View>

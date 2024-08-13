@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View ,SafeAreaView,Button,TouchableOpacity, Pressable} from 'react-native'
 import React from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import CartIcon from '../components/CartIcon';
 
 
 
@@ -26,6 +27,7 @@ const HelpScreen = ({navigation}) => {
         <Text style={{marginLeft:14,marginTop:20,fontWeight:"500", fontSize:15 }}>Push Notifications</Text>
         <Text style={{marginLeft:14,marginTop:40,fontWeight:"500", fontSize:15 }} onPress={()=>navigation.navigate("Country")} >Country</Text>
         <Text style={{marginLeft:14,marginTop:40,fontWeight:"500", fontSize:15,color:'#d9d6d2' }}>Language</Text>
+        <CartIcon/>
         <Text style={{marginLeft:14,marginTop:40,fontWeight:"500", fontSize:15, color:'#d9d6d2' }}>App Version 13.8.0</Text>
 
       </View>

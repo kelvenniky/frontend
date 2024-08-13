@@ -198,6 +198,8 @@ const HomeScreen = () => {
     },
   ];
   const [products, setProducts] = useState([]);
+     const [userInput, setUserInput] = useState("")
+
   const navigation = useNavigation();
   const [open, setOpen] = useState(false);
   const [addresses, setAddresses] = useState([]);
@@ -249,7 +251,7 @@ const HomeScreen = () => {
         }}
       >
         <ScrollView>
-          <View
+        <View
             style={{
               backgroundColor: "#262624",
               padding: 10,
@@ -257,17 +259,26 @@ const HomeScreen = () => {
               alignItems: "center",
             }}
           >
+             <AntDesign
+                style={{  marginRight: 5 }}
+                onPress={() => navigation.navigate("Camera")}
+                name="camera"
+                size={24}
+                color="white"
+              /> 
+
+            
             <Pressable
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                marginleft: 10,
-                gap: 10,
+               
+                width:300,
+               
                 backgroundColor: "white",
                 borderRadius: 3,
                 height: 38,
-
-                // flex: 1,
+                marginLeft:8
               }}
             >
               <AntDesign
@@ -276,22 +287,19 @@ const HomeScreen = () => {
                 size={22}
                 color="black"
               />
-              <TextInput placeholder="Search " />
+              <TextInput 
+              placeholder="Search "
+              onChangeText={(text)=> setUserInput(text)}
+              style={{marginLeft:10}} />
 
-              <AntDesign
-                style={{ marginLeft: 200, marginRight: 10 }}
-                onPress={() => navigation.navigate("Camera")}
-                name="camera"
-                size={24}
-                color="black"
-              />
+              
             </Pressable>
             <Pressable onPress={() => navigation.navigate("Cart")}>
               <AntDesign
                 name="shoppingcart"
                 size={24}
                 color="white"
-                style={{ marginLeft: 20 }}
+                style={{ marginLeft: 10 }}         
               />
             </Pressable>
           </View>

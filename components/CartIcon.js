@@ -1,52 +1,34 @@
-import React, { useContext } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { CartContext } from './App';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
-const CartIcon = () => {
-  const { cartItems } = useContext(CartContext);
-
+const CartIcon = ({ cartCount }) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <View style={styles.cartIcon}>
-        <Text style={styles.cartText}>Cart</Text>
-        {cartItems.length > 0 && (
-          <View style={styles.countIndicator}>
-            <Text style={styles.countText}>{cartItems.length}</Text>
-          </View>
-        )}
-      </View>
-    </TouchableOpacity>
+    <View style={styles.cartIcon}>
+      <Ionicons name="cart-outline" size={24} color="white" />
+      {cartCount > 0 && (
+        <View style={styles.cartCount}>
+          <Text style={styles.cartCountText}>{cartCount}</Text>
+        </View>
+      )}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 16,
-  },
   cartIcon: {
-    backgroundColor: '#007AFF',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  cartText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
+  cartCount: {
+    backgroundColor: 'red',
+    borderRadius: 10,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    marginLeft: 4,
   },
-  countIndicator: {
-    backgroundColor: '#FF3B30',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    marginLeft: 8,
-  },
-  countText: {
-    color: '#FFFFFF',
+  cartCountText: {
+    color: 'white',
     fontSize: 12,
     fontWeight: 'bold',
   },
